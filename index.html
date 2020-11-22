@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+    <head>
+        <title>Burdell's Casino</title>
+        <script src= "script.js"></script>
+    </head>
+    <body>
+        <div class = "game">
+            <h1>Blackjack!</h1>
+        
+            <div class = "Game Content">
+                <div class = "Options">
+                    <button id="clickStart">Start</button>
+                    <button id="hit" class = "click">Hit</button>
+                    <button id="stay" class ="click">Stay</button>
+                    <script>
+                        const START = document.getElementById("clickStart");
+                        START.addEventListener("click", function(){
+                            begin()}, false);
+                        const HIT = document.getElementById("hit");
+                        HIT.addEventListener("click", function() {
+                        hit(0)}, false);
+                        const STAY = document.getElementById("stay");
+                        STAY.addEventListener("click", function() {
+                        stay()}, false);
+                    </script>
+                </div>
+                <div class = "update" id = "update">
+                </div>  
+                <div id = "cardDeck" class = "cardDeck">
+                    <!--<div id = "cardCounter">52
+                    </div>-->
+                    <h1 id="outcome"></h1>
+                    
+                </div>
+                <div id = "player" class = "player">
+                    <p id="cardWriting"></p>
+                </div>
+                <div id = "house" class = "house">
+                    <p id="cardWritingHOUSE"></p>
+                </div>
+                <div class = "clear">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
