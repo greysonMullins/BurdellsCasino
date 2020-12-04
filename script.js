@@ -15,10 +15,11 @@ Card.prototype.toString = function() { //overridden toString for debugging purpo
     return ("Suit: " + this.suit + " Value: " + this.value + " Points: " + this.point);
 }
 
-function Player(name, pointValue, cards) { //Player constructor to make player objects
+function Player(name, pointValue, cards, worthOne) { //Player constructor to make player objects
     this.name = name;
     this.pointValue = pointValue;
     this.cards = cards;
+    this.worthOne = worthOne; //used to determine if ace has already been converted to 1 to prevent busting
 }
 Player.prototype.toString = function() { //overrideen toString for debuggin purposes
     return ("Name: " + this.name + " Point Value: " + this.pointValue + " Cards: " + this.cards);
@@ -33,7 +34,7 @@ function makeDeck() {
                 points = 10;
             if(cardValues[x] == "Ace" )
                     points = 11;
-            var card = new Card(cardSuits[z], cardValues[x], points); //creating card object to be added to deck
+            var card = new Card(cardSuits[z], cardValues[x], points, false); //creating card object to be added to deck
             cardDeck.push(card);
         }
     }
@@ -63,6 +64,9 @@ function dealCards() {
             }
         }
     }
+    
+    console.log(player[0].cards);
+    console.log(player[1].cards);
     document.getElementById("header").innerHTML = ("Total:  " + player[0].pointValue); //prints player point total to screen
 }
 
@@ -122,11 +126,12 @@ function hit(x) {
     player[x].pointValue += card.point;
     if (player[x].pointValue > 21) { //if player busts
         for(var i = 0; i < player[x].cards.length; i++) { //travers their hand
-            if (player[x].cards[i].value == "Ace") { //if they have an ace
+            if (player[0].cards[i].value == "Ace" && !(player[0].cards[i].worthOne)) { //if they have an ace
                 player[x].pointValue = (player[x].pointValue - 10); //make ace worth 1 instead of 11
+                player[x].cards[i].worthOne = true;
                 break;
             }
-        } 
+        }
     }
     getImage(card, x, player[x]);    
     if (x == 0) {
