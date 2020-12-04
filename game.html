@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+    <head>
+        <title>Burdell's Casino</title>
+        <script src= "script.js"></script>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class = "game">
+            <img id= "background" src="Assets/gamePage.png"  width="800" height="450">
+            <div class = "Game Content">
+                <div class = "Options">
+                    <button id="clickStart" class = "startButton">Deal</button>
+                    <button id="hit" class = "hitButton">Hit</button>
+                    <button id="stay" class ="stayButton">Stay</button>
+                    <script>
+                        const START = document.getElementById("clickStart");
+                        START.addEventListener("click", function(){
+                            begin()}, false);
+                        const HIT = document.getElementById("hit");
+                        HIT.addEventListener("click", function() {
+                        hit(0)}, false);
+                        const STAY = document.getElementById("stay");
+                        STAY.addEventListener("click", function() {
+                        stay()}, false);
+                    </script>
+                    <div id = "playerTotal" class = "playerTotal">
+                        <p id = "header"></p>
+                    </div>
+                    <div id = "houseTotal" class = "houseTotal">
+                        <p id = "houseHeader"></p>
+                    </div>
+                </div>
+                <div id = "player" class = "playerClass">
+                    <div id = "playerCard1" class = "playerCard1"></div>
+                    <div id = "playerCard2" class = "playerCard2"></div>
+                    <div id = "playerCard3" class = "playerCard3"></div>
+                    <div id = "playerCard4" class = "playerCard4"></div>
+                    <div id = "playerCard5" class = "playerCard5"></div>
+                    <div id = "playerCard6" class = "playerCard6"></div> 
+                </div>
+                <div id = "house" class = "houseClass">
+                    <div id = "houseCard1" class = "houseCard1"></div>
+                    <div id = "houseCard2" class = "houseCard2"></div>
+                    <div id = "houseCard3" class = "houseCard3"></div>
+                    <div id = "houseCard4" class = "houseCard4"></div>
+                    <div id = "houseCard5" class = "houseCard5"></div>
+                    <div id = "houseCard6" class = "houseCard6"></div>
+                </div>
+                <div class = "clear">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
